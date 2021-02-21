@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Styled from "styled-components";
 import axios from "axios";
 
@@ -28,7 +28,17 @@ const StyledInputDiv = Styled.div`
     padding: 1rem;
     margin: 2rem 0 0.5rem 0;
     font-size: 1.2rem;
+    border-radius: 2rem;
+    border-color: black;
+
+    &:focus {
+    outline: none; 
+    border-color: #0066ff;
+    }
   }
+  
+
+
 `;
 
 export default LandingPageInput;

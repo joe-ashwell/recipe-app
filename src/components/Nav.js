@@ -1,10 +1,13 @@
 import React from "react";
 import Styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
     <StyledNav>
-      <h1>😋</h1>
+      <Link to="/">
+        <h1>😋</h1>
+      </Link>
       <a href="#">other shit</a>
     </StyledNav>
   );
@@ -13,7 +16,7 @@ const Nav = () => {
 const StyledNav = Styled.nav`
   height: 5vh;
   width: 100vw;
-  background: #6d6161;
+  background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -4,9 +4,7 @@ import LandingPageText from "../components/LandingPageText";
 import LandingPageInput from "../components/LandingPageInput";
 import LandingPageSearchResult from "../components/LandingPageSearchResult";
 
-const LandingPage = () => {
-  const [searchResult, setSearchResult] = useState(null);
-
+const LandingPage = ({ searchResult, setSearchResult }) => {
   return (
     <LandingPageDiv>
       <LandingPageText />
