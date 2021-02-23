@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import Styled from "styled-components";
 import LandingPageText from "../components/LandingPageText";
 import LandingPageInput from "../components/LandingPageInput";
 import LandingPageSearchResult from "../components/LandingPageSearchResult";
 
-const LandingPage = ({ searchResult, setSearchResult }) => {
+const LandingPage = ({ setSearchResult, searchResult, setSelectedFilter }) => {
   return (
     <LandingPageDiv>
       <LandingPageText />
       <LandingPageInput
-        searchResult={searchResult}
         setSearchResult={setSearchResult}
+        searchResult={searchResult}
+        setSelectedFilter={setSelectedFilter}
       />
       <SearchResultsDiv>
         {searchResult &&
           searchResult.map((item) => (
-            <LandingPageSearchResult searchResult={item} title={item.title} />
+            <LandingPageSearchResult
+              setSelectedFilter={setSelectedFilter}
+              searchResult={item}
+              title={item.title}
+              key={item.id}
+            />
           ))}
       </SearchResultsDiv>
     </LandingPageDiv>

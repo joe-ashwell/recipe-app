@@ -3,23 +3,13 @@ import Styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const LandingPageSearchResult = ({
-  setSelectedFilter,
-  setSearchResult,
-  searchResult,
   title,
+  searchResult,
+  setSelectedFilter,
 }) => {
-  const whatSelected = () => {
-    // setSelectedFilter(searchResult.filter((item) => item.title === title));
-  };
-
   return (
     <Link to={`/search/${title}`}>
-      <SearchResultDivItem
-        searchResult={searchResult}
-        setSearchResult={setSearchResult}
-        setSelectedFilter={setSelectedFilter}
-        onClick={whatSelected}
-      >
+      <SearchResultDivItem onClick={() => setSelectedFilter(searchResult)}>
         <p>{title}</p>
       </SearchResultDivItem>
     </Link>

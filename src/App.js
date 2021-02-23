@@ -22,7 +22,6 @@ function App() {
           <LandingPage
             searchResult={searchResult}
             setSearchResult={setSearchResult}
-            selectedFilter={selectedFilter}
             setSelectedFilter={setSelectedFilter}
           />
         </Route>
@@ -31,8 +30,8 @@ function App() {
           <SearchGridPage
             searchResult={searchResult}
             setSearchResult={setSearchResult}
-            selectedFilter={selectedFilter}
             setSelectedFilter={setSelectedFilter}
+            selectedFilter={selectedFilter}
           />
         </Route>
       </Switch>
