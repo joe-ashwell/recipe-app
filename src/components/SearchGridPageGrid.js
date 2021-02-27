@@ -6,7 +6,7 @@ const SearchGridPageGrid = ({ selectedFilter, recipesFromIngredients }) => {
     <>
       {recipesFromIngredients &&
         recipesFromIngredients.map((recipeLink) => (
-          <StyledGridDiv>
+          <StyledGridDiv key={recipeLink.id}>
             <img src={recipeLink.image}></img>
             <h3>{recipeLink.title}</h3>
             {console.log(recipeLink)}

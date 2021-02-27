@@ -6,7 +6,7 @@ const LandingPageInput = ({ searchResult, setSearchResult }) => {
   const enteredSearch = (e) => {
     axios
       .get(
-        `https://api.spoonacular.com/recipes/autocomplete?number=5&query=${e.target.value}&apiKey=${process.env.REACT_APP_FOOD_API}`
+        `https://api.spoonacular.com/food/ingredients/autocomplete?query=${e.target.value}&number=5&apiKey=${process.env.REACT_APP_FOOD_API}`
       )
       .then((data) => setSearchResult(data.data));
   };

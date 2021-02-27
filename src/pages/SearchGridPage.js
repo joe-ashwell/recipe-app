@@ -10,7 +10,7 @@ const SearchGridPage = ({ selectedFilter }) => {
     selectedFilter &&
       axios
         .get(
-          `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${selectedFilter.title}&number=5&apiKey=${process.env.REACT_APP_FOOD_API}`
+          `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${selectedFilter}&number=5&apiKey=${process.env.REACT_APP_FOOD_API}&includeNutrition=true`
         )
         .then((data) => setRecipesFromIngredients(data.data));
   }, [selectedFilter]);

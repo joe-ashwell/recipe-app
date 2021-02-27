@@ -19,8 +19,8 @@ const LandingPage = ({ setSearchResult, searchResult, setSelectedFilter }) => {
             <LandingPageSearchResult
               setSelectedFilter={setSelectedFilter}
               searchResult={item}
-              title={item.title}
-              key={item.id}
+              name={item.name}
+              key={item.name}
             />
           ))}
       </SearchResultsDiv>
