@@ -2,11 +2,21 @@ import React from "react";
 import Styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const LandingPageSearchResult = ({ name, searchResult, setSelectedFilter }) => {
+const LandingPageSearchResult = ({
+  name,
+  searchResult,
+  setSelectedFilter,
+  selectedFilter,
+}) => {
   return (
-    <Link to={`/search/${name}`}>
-      <SearchResultDivItem onClick={() => setSelectedFilter(searchResult.name)}>
-        <p>{name}</p>
+    <Link to={`/search/${selectedFilter && selectedFilter.join("+")}`}>
+      <SearchResultDivItem
+        onClick={() =>
+          selectedFilter &&
+          setSelectedFilter([...selectedFilter, searchResult.name])
+        }
+      >
+        <p>{searchResult.name}</p>
       </SearchResultDivItem>
     </Link>
   );

@@ -4,7 +4,12 @@ import LandingPageText from "../components/LandingPageText";
 import LandingPageInput from "../components/LandingPageInput";
 import LandingPageSearchResult from "../components/LandingPageSearchResult";
 
-const LandingPage = ({ setSearchResult, searchResult, setSelectedFilter }) => {
+const LandingPage = ({
+  setSearchResult,
+  searchResult,
+  setSelectedFilter,
+  selectedFilter,
+}) => {
   return (
     <LandingPageDiv>
       <LandingPageText />
@@ -12,11 +17,13 @@ const LandingPage = ({ setSearchResult, searchResult, setSelectedFilter }) => {
         setSearchResult={setSearchResult}
         searchResult={searchResult}
         setSelectedFilter={setSelectedFilter}
+        selectedFilter={selectedFilter}
       />
       <SearchResultsDiv>
         {searchResult &&
           searchResult.map((item) => (
             <LandingPageSearchResult
+              selectedFilter={selectedFilter}
               setSelectedFilter={setSelectedFilter}
               searchResult={item}
               name={item.name}

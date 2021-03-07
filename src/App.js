@@ -11,18 +11,24 @@ import SearchGridPage from "./pages/SearchGridPage";
 
 function App() {
   const [searchResult, setSearchResult] = useState(null);
-  const [selectedFilter, setSelectedFilter] = useState(null);
+  const [selectedFilter, setSelectedFilter] = useState([]);
 
   return (
     <div>
       <GlobalStyle />
-      <Nav />
+      <Nav
+        searchResult={searchResult}
+        setSearchResult={setSearchResult}
+        setSelectedFilter={setSelectedFilter}
+        selectedFilter={selectedFilter}
+      />
       <Switch>
         <Route path="/" exact>
           <LandingPage
             searchResult={searchResult}
             setSearchResult={setSearchResult}
             setSelectedFilter={setSelectedFilter}
+            selectedFilter={selectedFilter}
           />
         </Route>
 

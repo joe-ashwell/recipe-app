@@ -1,13 +1,35 @@
 import React from "react";
 import Styled from "styled-components";
 import { Link } from "react-router-dom";
+import LandingPageInput from "./LandingPageInput";
+import LandingPageSearchResult from "./LandingPageSearchResult";
 
-const Nav = () => {
+const Nav = ({
+  searchResult,
+  setSearchResult,
+  setSelectedFilter,
+  selectedFilter,
+}) => {
   return (
     <StyledNav>
       <Link to="/">
         <h1>😋</h1>
       </Link>
+      <LandingPageInput
+        selectedFilter={selectedFilter}
+        setSearchResult={setSearchResult}
+        searchResult={searchResult}
+      />
+      {searchResult &&
+        searchResult.map((item) => (
+          <LandingPageSearchResult
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+            searchResult={item}
+            name={item.name}
+            key={item.name}
+          />
+        ))}
       <a href="#">other shit</a>
     </StyledNav>
   );

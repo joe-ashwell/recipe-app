@@ -1,7 +1,7 @@
 import React from "react";
 import Styled from "styled-components";
 
-const SearchGridPageGrid = ({ selectedFilter, recipesFromIngredients }) => {
+const SearchGridPageGrid = ({ recipesFromIngredients }) => {
   return (
     <>
       {recipesFromIngredients &&
@@ -9,7 +9,6 @@ const SearchGridPageGrid = ({ selectedFilter, recipesFromIngredients }) => {
           <StyledGridDiv key={recipeLink.id}>
             <img src={recipeLink.image}></img>
             <h3>{recipeLink.title}</h3>
-            {console.log(recipeLink)}
           </StyledGridDiv>
         ))}
     </>
