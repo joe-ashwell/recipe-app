@@ -1,19 +1,22 @@
 import React from "react";
 import Styled from "styled-components";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 const LandingPageSearchResult = ({
-  name,
   searchResult,
   setSelectedFilter,
   selectedFilter,
 }) => {
   return (
-    <Link to={`/search/${selectedFilter && selectedFilter.join("+")}`}>
+    <Link to={`/search/${searchResult && searchResult.name}`}>
       <SearchResultDivItem
         onClick={() =>
           selectedFilter &&
-          setSelectedFilter([...selectedFilter, searchResult.name])
+          setSelectedFilter([
+            ...selectedFilter,
+            { name: searchResult.name, id: uuidv4() },
+          ])
         }
       >
         <p>{searchResult.name}</p>

@@ -4,14 +4,16 @@ import SearchGridPageGrid from "../components/SearchGridPageGrid";
 import SearchGridPageSearchFilters from "../components/SearchFilters";
 import axios from "axios";
 
-const SearchGridPage = ({ selectedFilter }) => {
+const SearchGridPage = ({ setSelectedFilter, selectedFilter }) => {
   const [recipesFromIngredients, setRecipesFromIngredients] = useState(null);
 
   useEffect(() => {
+    const filterItems = selectedFilter.map((filter) => filter.name);
+
     selectedFilter &&
       axios
         .get(
-          `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${selectedFilter.join(
+          `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${filterItems.join(
             ",+"
           )}&number=5&apiKey=${
             process.env.REACT_APP_FOOD_API
@@ -22,7 +24,10 @@ const SearchGridPage = ({ selectedFilter }) => {
 
   return (
     <>
-      <SearchGridPageSearchFilters selectedFilter={selectedFilter} />
+      <SearchGridPageSearchFilters
+        selectedFilter={selectedFilter}
+        setSelectedFilter={setSelectedFilter}
+      />
       <SearchGridPageGrid
         selectedFilter={selectedFilter}
         recipesFromIngredients={recipesFromIngredients}
