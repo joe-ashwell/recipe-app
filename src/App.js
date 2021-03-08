@@ -8,10 +8,13 @@ import Nav from "./components/Nav";
 // Pages
 import LandingPage from "./pages/LandingPage";
 import SearchGridPage from "./pages/SearchGridPage";
+import RecipePage from "./pages/RecipePage";
 
 function App() {
   const [searchResult, setSearchResult] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState([]);
+  const [recipesFromIngredients, setRecipesFromIngredients] = useState(null);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   return (
     <div>
@@ -38,6 +41,21 @@ function App() {
             setSearchResult={setSearchResult}
             setSelectedFilter={setSelectedFilter}
             selectedFilter={selectedFilter}
+            recipesFromIngredients={recipesFromIngredients}
+            setRecipesFromIngredients={setRecipesFromIngredients}
+            setSelectedRecipe={setSelectedRecipe}
+          />
+        </Route>
+
+        <Route path="/recipe/">
+          <RecipePage
+            searchResult={searchResult}
+            setSearchResult={setSearchResult}
+            setSelectedFilter={setSelectedFilter}
+            selectedFilter={selectedFilter}
+            recipesFromIngredients={recipesFromIngredients}
+            setRecipesFromIngredients={setRecipesFromIngredients}
+            selectedRecipe={selectedRecipe}
           />
         </Route>
       </Switch>

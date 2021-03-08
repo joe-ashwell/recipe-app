@@ -4,9 +4,13 @@ import SearchGridPageGrid from "../components/SearchGridPageGrid";
 import SearchGridPageSearchFilters from "../components/SearchFilters";
 import axios from "axios";
 
-const SearchGridPage = ({ setSelectedFilter, selectedFilter }) => {
-  const [recipesFromIngredients, setRecipesFromIngredients] = useState(null);
-
+const SearchGridPage = ({
+  setSelectedFilter,
+  selectedFilter,
+  setRecipesFromIngredients,
+  recipesFromIngredients,
+  setSelectedRecipe,
+}) => {
   useEffect(() => {
     const filterItems = selectedFilter.map((filter) => filter.name);
 
@@ -31,6 +35,7 @@ const SearchGridPage = ({ setSelectedFilter, selectedFilter }) => {
       <SearchGridPageGrid
         selectedFilter={selectedFilter}
         recipesFromIngredients={recipesFromIngredients}
+        setSelectedRecipe={setSelectedRecipe}
       />
     </>
   );
