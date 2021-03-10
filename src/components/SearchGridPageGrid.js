@@ -10,8 +10,9 @@ const SearchGridPageGrid = ({ recipesFromIngredients, setSelectedRecipe }) => {
           <Link
             to={`/recipe/${recipeLink.title}`}
             onClick={() => setSelectedRecipe(recipeLink)}
+            key={recipeLink.id}
           >
-            <StyledGridDiv key={recipeLink.id}>
+            <StyledGridDiv>
               <img src={recipeLink.image}></img>
               <h3>{recipeLink.title}</h3>
             </StyledGridDiv>
