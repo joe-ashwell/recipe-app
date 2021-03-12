@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Styled from "styled-components";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const RecipePage = ({ selectedRecipe }) => {
   const [recipe, setRecipe] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     selectedRecipe &&
@@ -14,8 +15,11 @@ const RecipePage = ({ selectedRecipe }) => {
         .then((data) => setRecipe(data.data));
   }, []);
   return (
-    <>
-      <h1>{recipe && recipe.title}</h1>
+    <div className="md:w-auto">
+      <h2 className="cursor-pointer" onClick={history.goBack}>
+        🔙 Back to search
+      </h2>
+      <h1 className="text-7xl text-center m-5">{recipe && recipe.title}</h1>
       <img
         style={{ width: "100vw" }}
         alt={recipe && recipe.title}
@@ -44,12 +48,8 @@ const RecipePage = ({ selectedRecipe }) => {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
-
-const Something = Styled.div`
-
-`;
 
 export default RecipePage;

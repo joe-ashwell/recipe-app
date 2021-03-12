@@ -1,5 +1,4 @@
 import React from "react";
-import Styled from "styled-components";
 import axios from "axios";
 
 const LandingPageInput = ({ searchResult, setSearchResult }) => {
@@ -12,33 +11,17 @@ const LandingPageInput = ({ searchResult, setSearchResult }) => {
   };
 
   return (
-    <StyledInputDiv searchResult={searchResult}>
+    <div searchResult={searchResult} className="max-w-screen-lg absolute">
+      <h1 className="mb-6 text-9xl">What's left in your fridge?</h1>
+
       <input
+        className="border-gray-600 border-2 rounded p-4 w-1/2"
         onChange={enteredSearch}
         type="text"
         placeholder="Give me food..."
       />
-    </StyledInputDiv>
+    </div>
   );
 };
-
-const StyledInputDiv = Styled.div`
-  input {
-    width: 700px;
-    padding: 1rem;
-    margin: 2rem 0 0.5rem 0;
-    font-size: 1.2rem;
-    border-radius: 2rem;
-    border-color: black;
-
-    &:focus {
-    outline: none; 
-    border-color: #0066ff;
-    }
-  }
-  
-
-
-`;
 
 export default LandingPageInput;

@@ -1,10 +1,9 @@
 import React from "react";
-import Styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const SearchGridPageGrid = ({ recipesFromIngredients, setSelectedRecipe }) => {
   return (
-    <>
+    <div className="flex flex-wrap justify-items-center">
       {recipesFromIngredients &&
         recipesFromIngredients.map((recipeLink) => (
           <Link
@@ -12,15 +11,14 @@ const SearchGridPageGrid = ({ recipesFromIngredients, setSelectedRecipe }) => {
             onClick={() => setSelectedRecipe(recipeLink)}
             key={recipeLink.id}
           >
-            <StyledGridDiv>
+            <div className="m-1 p-1">
               <img src={recipeLink.image}></img>
               <h3>{recipeLink.title}</h3>
-            </StyledGridDiv>
+            </div>
           </Link>
         ))}
-    </>
+    </div>
   );
 };
 
-const StyledGridDiv = Styled.div``;
 export default SearchGridPageGrid;

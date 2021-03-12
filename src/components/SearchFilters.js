@@ -1,5 +1,4 @@
 import React from "react";
-import Styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 
 const SearchGridPageSearchFilters = ({ setSelectedFilter, selectedFilter }) => {
@@ -8,34 +7,24 @@ const SearchGridPageSearchFilters = ({ setSelectedFilter, selectedFilter }) => {
   };
 
   return (
-    <FiltersDiv selectedFilter={selectedFilter}>
-      <FiltersDivItem>
+    <div>
+      {selectedFilter && <p>Filters:</p>}
+
+      <div className="flex flex-row">
         {selectedFilter &&
           selectedFilter.map((item) => (
-            <p onClick={removeFilterItem} key={uuidv4()} id={item.id}>
+            <p
+              className="cursor-pointer m-1 p-1 bg-indigo-50 text-indigo-900"
+              onClick={removeFilterItem}
+              key={uuidv4()}
+              id={item.id}
+            >
               {item.name}
             </p>
           ))}
-      </FiltersDivItem>
-    </FiltersDiv>
+      </div>
+    </div>
   );
 };
 
-const FiltersDiv = Styled.div`
-  width: 100%;
-`;
-
-const FiltersDivItem = Styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-
-  p {
-    padding: 1rem;
-    background-color: blue;
-    color: white;
-  }
-
-`;
 export default SearchGridPageSearchFilters;

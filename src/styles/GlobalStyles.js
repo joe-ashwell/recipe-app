@@ -7,12 +7,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
-    /* background-color: #1b1b1b;
-    font-family: 'inter', sans-serif;
-    overflow-x: hidden; */
-  }
-
   h1,
   h2,
   h3 {

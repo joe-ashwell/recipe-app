@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Styled from "styled-components";
+import React, { useEffect } from "react";
 import SearchGridPageGrid from "../components/SearchGridPageGrid";
 import SearchGridPageSearchFilters from "../components/SearchFilters";
 import axios from "axios";
@@ -12,7 +11,8 @@ const SearchGridPage = ({
   setSelectedRecipe,
 }) => {
   useEffect(() => {
-    const filterItems = selectedFilter.map((filter) => filter.name);
+    const filterItems =
+      selectedFilter && selectedFilter.map((filter) => filter.name);
 
     selectedFilter &&
       axios
@@ -24,7 +24,7 @@ const SearchGridPage = ({
           }&includeNutrition=true`
         )
         .then((data) => setRecipesFromIngredients(data.data));
-  }, [selectedFilter]);
+  }, [selectedFilter && selectedFilter]);
 
   return (
     <>
@@ -32,11 +32,16 @@ const SearchGridPage = ({
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
       />
-      <SearchGridPageGrid
-        selectedFilter={selectedFilter}
-        recipesFromIngredients={recipesFromIngredients}
-        setSelectedRecipe={setSelectedRecipe}
-      />
+      {selectedFilter.length > 0 ? (
+        <SearchGridPageGrid
+          setSelectedFilter={setSelectedFilter}
+          selectedFilter={selectedFilter}
+          recipesFromIngredients={recipesFromIngredients}
+          setSelectedRecipe={setSelectedRecipe}
+        />
+      ) : (
+        <div>No such luck, pal</div>
+      )}
     </>
   );
 };

@@ -1,8 +1,5 @@
 import React from "react";
-import Styled from "styled-components";
 import { Link } from "react-router-dom";
-// import LandingPageInput from "./LandingPageInput";
-// import LandingPageSearchResult from "./LandingPageSearchResult";
 import NavInput from "./NavInput";
 import NavSearchResult from "./NavSearchResult";
 
@@ -13,9 +10,17 @@ const Nav = ({
   selectedFilter,
 }) => {
   return (
-    <StyledNav>
+    <nav className="flex m-4 p-4">
       <Link to="/">
-        <h1>😋</h1>
+        <h1
+          className="mr-4"
+          onClick={() => {
+            setSearchResult(null);
+            setSelectedFilter([]);
+          }}
+        >
+          😋
+        </h1>
       </Link>
       {window.location.pathname.includes("/search/") && (
         <NavInput
@@ -24,46 +29,22 @@ const Nav = ({
           searchResult={searchResult}
         />
       )}
-      {window.location.pathname.includes("/search/") &&
-        searchResult &&
-        searchResult.map((item) => (
-          <NavSearchResult
-            selectedFilter={selectedFilter}
-            setSelectedFilter={setSelectedFilter}
-            searchResult={item}
-            name={item.name}
-            key={item.name}
-          />
-        ))}
-
-      {/* <Test
-        selectedFilter={selectedFilter}
-        setSearchResult={setSearchResult}
-        searchResult={searchResult}
-      />
-      {searchResult &&
-        searchResult.map((item) => (
-          <TestResult
-            selectedFilter={selectedFilter}
-            setSelectedFilter={setSelectedFilter}
-            searchResult={item}
-            name={item.name}
-            key={item.name}
-          />
-        ))} */}
-      <a href="#">other shit</a>
-    </StyledNav>
+      <div className="test-resutl">
+        {window.location.pathname.includes("/search/") &&
+          searchResult &&
+          searchResult.map((item) => (
+            <NavSearchResult
+              setSearchResult={setSearchResult}
+              selectedFilter={selectedFilter}
+              setSelectedFilter={setSelectedFilter}
+              searchResult={item}
+              name={item.name}
+              key={item.name}
+            />
+          ))}
+      </div>
+    </nav>
   );
 };
 
-const StyledNav = Styled.nav`
-  height: 5vh;
-  width: 100vw;
-  background: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 5rem;
-
-`;
 export default Nav;

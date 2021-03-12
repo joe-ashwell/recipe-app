@@ -1,8 +1,9 @@
-import React from "react";
-import Styled from "styled-components";
+import React, { useEffect, useRef } from "react";
 import axios from "axios";
 
-const NavInput = ({ searchResult, setSearchResult }) => {
+const NavInput = ({ searchResult, setSearchResult, selectedFilter }) => {
+  const inputEl = useRef(null);
+
   const enteredSearch = (e) => {
     axios
       .get(
@@ -11,29 +12,20 @@ const NavInput = ({ searchResult, setSearchResult }) => {
       .then((data) => setSearchResult(data.data));
   };
 
+  useEffect(() => {
+    inputEl && (inputEl.current.value = "");
+  }, [selectedFilter]);
+
   return (
-    <NavInputDiv searchResult={searchResult}>
-      <input onChange={enteredSearch} type="text" placeholder="boobs" />
-    </NavInputDiv>
+    <div className="input-test">
+      <input
+        onChange={enteredSearch}
+        type="text"
+        placeholder="Search more ingredients"
+        ref={inputEl}
+      />
+    </div>
   );
 };
-
-const NavInputDiv = Styled.div`
-  input {
-    width: 700px;
-    padding: 0.5rem;
-    margin: 2rem 0 0.5rem 0;
-    font-size: 1rem;
-    border-color: black;
-
-    &:focus {
-    outline: none; 
-    border-color: #0066ff;
-    }
-  }
-  
-
-
-`;
 
 export default NavInput;
