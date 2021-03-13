@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavInput from "./NavInput";
-import NavSearchResult from "./NavSearchResult";
 
 const Nav = ({
   searchResult,
@@ -27,10 +26,10 @@ const Nav = ({
           selectedFilter={selectedFilter}
           setSearchResult={setSearchResult}
           searchResult={searchResult}
+          setSelectedFilter={setSelectedFilter}
         />
       )}
-      <div className="test-resutl">
-        {window.location.pathname.includes("/search/") &&
+      {/* {window.location.pathname.includes("/search/") &&
           searchResult &&
           searchResult.map((item) => (
             <NavSearchResult
@@ -41,8 +40,7 @@ const Nav = ({
               name={item.name}
               key={item.name}
             />
-          ))}
-      </div>
+          ))} */}
     </nav>
   );
 };

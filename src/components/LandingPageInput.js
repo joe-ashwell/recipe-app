@@ -1,7 +1,13 @@
 import React from "react";
 import axios from "axios";
+import LandingPageSearchResult from "./LandingPageSearchResult";
 
-const LandingPageInput = ({ searchResult, setSearchResult }) => {
+const LandingPageInput = ({
+  searchResult,
+  setSearchResult,
+  setSelectedFilter,
+  selectedFilter,
+}) => {
   const enteredSearch = (e) => {
     axios
       .get(
@@ -13,13 +19,25 @@ const LandingPageInput = ({ searchResult, setSearchResult }) => {
   return (
     <div searchResult={searchResult} className="max-w-screen-lg absolute">
       <h1 className="mb-6 text-9xl">Search foodz?</h1>
-
-      <input
-        className="border-gray-600 border-2 rounded p-4 w-1/2"
-        onChange={enteredSearch}
-        type="text"
-        placeholder="Give me food..."
-      />
+      <div>
+        <input
+          className="border-gray-600 border-2 rounded p-4 w-1/2"
+          onChange={enteredSearch}
+          type="text"
+          placeholder="Give me food..."
+        />
+        {searchResult &&
+          searchResult.map((item) => (
+            <LandingPageSearchResult
+              selectedFilter={selectedFilter}
+              setSelectedFilter={setSelectedFilter}
+              setSearchResult={setSearchResult}
+              searchResult={item}
+              name={item.name}
+              key={item.name}
+            />
+          ))}
+      </div>
     </div>
   );
 };

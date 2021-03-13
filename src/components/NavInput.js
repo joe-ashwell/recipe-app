@@ -1,7 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import axios from "axios";
+import NavSearchResult from "./NavSearchResult";
 
-const NavInput = ({ searchResult, setSearchResult, selectedFilter }) => {
+const NavInput = ({
+  searchResult,
+  setSearchResult,
+  selectedFilter,
+  setSelectedFilter,
+}) => {
   const inputEl = useRef(null);
 
   const enteredSearch = (e) => {
@@ -24,6 +30,18 @@ const NavInput = ({ searchResult, setSearchResult, selectedFilter }) => {
         placeholder="Search more ingredients"
         ref={inputEl}
       />
+      {window.location.pathname.includes("/search/") &&
+        searchResult &&
+        searchResult.map((item) => (
+          <NavSearchResult
+            setSearchResult={setSearchResult}
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+            searchResult={item}
+            name={item.name}
+            key={item.name}
+          />
+        ))}
     </div>
   );
 };
