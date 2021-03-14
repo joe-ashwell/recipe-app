@@ -14,37 +14,50 @@ const RecipePage = ({ selectedRecipe }) => {
         )
         .then((data) => setRecipe(data.data));
   }, []);
+
   return (
-    <div className="md:w-auto">
+    <div className="mx-20">
       <h2 className="cursor-pointer" onClick={history.goBack}>
         🔙 Back to search
       </h2>
-      <h1 className="text-7xl text-center m-5">{recipe && recipe.title}</h1>
-      <img
-        style={{ width: "100vw" }}
-        alt={recipe && recipe.title}
-        src={recipe && recipe.image}
-      />
-      <p>{recipe && recipe.summary}</p>
-      <p>Suitable for:</p>
-      <ul>
-        {recipe && recipe.dishTypes.map((dishType) => <li>{dishType}</li>)}
-      </ul>
-      <h4>{recipe && recipe.instructions}</h4>
-      <h3>Total time: {recipe && recipe.readyInMinutes} minutes</h3>
-      <h3>Serves: {recipe && recipe.servings} people</h3>
+      <h1 className="text-5xl text-center my-10">{recipe && recipe.title}</h1>
+
+      <div className="flex items-center flex-wrap justify-center my-8 w-full">
+        <img
+          className="rounded-lg w-full md:w-6/12"
+          alt={recipe && recipe.title}
+          src={recipe && recipe.image}
+        />
+        <div className="md:-m-10 md:w-auto mt-8 p-4 py-8 bg-gray-100 rounded-lg w-full">
+          <h3 className="text-4xl md:text-2xl mb-4">Snapshot</h3>
+          <p>Suitable for:</p>
+          <ul className="mb-1">
+            {recipe &&
+              recipe.dishTypes.map((dishType) => (
+                <p className="list-disc ml-4 capitalize">- {dishType}</p>
+              ))}
+          </ul>
+          <p className="mb-1">
+            Total time: {recipe && recipe.readyInMinutes} minutes
+          </p>
+          <p className="mb-1">Serves: {recipe && recipe.servings} people</p>
+        </div>
+      </div>
+
+      <div className="mx-2 my-10">
+        <h3 className="text-4xl md:text-2xl mb-2">Summary</h3>
+        <p>{recipe && recipe.summary}</p>
+      </div>
+
       {recipe && recipe.analyzedInstructions[0] && (
-        <div>
+        <div className="mt-4 mx-2 mb-32">
+          <h3 className="text-4xl md:text-2xl my-2">Step by step</h3>
+
           {recipe.analyzedInstructions[0].steps.map((step) => (
-            <>
-              <h3>{step.number}</h3>
-              <h4>{step.step}</h4>
-              <ul>
-                {step.ingredients.map((ingredient) => (
-                  <li>{ingredient.name}</li>
-                ))}
-              </ul>
-            </>
+            <div className="mb-2">
+              <p className="underline">Step {step.number}</p>
+              <p>{step.step}</p>
+            </div>
           ))}
         </div>
       )}

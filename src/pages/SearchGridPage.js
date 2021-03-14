@@ -27,7 +27,7 @@ const SearchGridPage = ({
   }, [selectedFilter && selectedFilter]);
 
   return (
-    <>
+    <div className="mx-20 overflow-x-hidden">
       <SearchGridPageSearchFilters
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
@@ -40,9 +40,12 @@ const SearchGridPage = ({
           setSelectedRecipe={setSelectedRecipe}
         />
       ) : (
-        <div>No such luck, pal</div>
+        <div className="flex flex-col justify-center items-center overflow-hidden p-8 mt-32">
+          <h1 className="text-9xl">🤔</h1>
+          <p>No such luck, pal. Try searching a different ingredient.</p>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 

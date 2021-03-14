@@ -9,10 +9,10 @@ const Nav = ({
   selectedFilter,
 }) => {
   return (
-    <nav className="flex m-4 p-4">
+    <nav className="flex items-center mx-20 py-4 my-4">
       <Link to="/">
         <h1
-          className="mr-4"
+          className="mr-10 text-2xl "
           onClick={() => {
             setSearchResult(null);
             setSelectedFilter([]);
@@ -23,24 +23,13 @@ const Nav = ({
       </Link>
       {window.location.pathname.includes("/search/") && (
         <NavInput
+          className="absolute"
           selectedFilter={selectedFilter}
           setSearchResult={setSearchResult}
           searchResult={searchResult}
           setSelectedFilter={setSelectedFilter}
         />
       )}
-      {/* {window.location.pathname.includes("/search/") &&
-          searchResult &&
-          searchResult.map((item) => (
-            <NavSearchResult
-              setSearchResult={setSearchResult}
-              selectedFilter={selectedFilter}
-              setSelectedFilter={setSelectedFilter}
-              searchResult={item}
-              name={item.name}
-              key={item.name}
-            />
-          ))} */}
     </nav>
   );
 };

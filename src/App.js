@@ -17,7 +17,7 @@ function App() {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   return (
-    <div className="w-screen h-screen p-2 m-2">
+    <div className="w-screen h-screen">
       <GlobalStyle />
       <Nav
         searchResult={searchResult}

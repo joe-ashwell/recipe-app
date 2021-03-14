@@ -17,26 +17,28 @@ const LandingPageInput = ({
   };
 
   return (
-    <div searchResult={searchResult} className="max-w-screen-lg absolute">
-      <h1 className="mb-6 text-9xl">Search foodz?</h1>
-      <div>
+    <div className="max-w-screen-lg">
+      <h1 className="mb-6 text-8xl">What's left in your fridge?</h1>
+      <div className="w-full">
         <input
-          className="border-gray-600 border-2 rounded p-4 w-1/2"
+          className="border-gray-600 border-2 rounded p-4 relative w-1/2"
           onChange={enteredSearch}
           type="text"
           placeholder="Give me food..."
         />
-        {searchResult &&
-          searchResult.map((item) => (
-            <LandingPageSearchResult
-              selectedFilter={selectedFilter}
-              setSelectedFilter={setSelectedFilter}
-              setSearchResult={setSearchResult}
-              searchResult={item}
-              name={item.name}
-              key={item.name}
-            />
-          ))}
+        <div className="absolute w-1/2 bg-gray-50">
+          {searchResult &&
+            searchResult.map((item) => (
+              <LandingPageSearchResult
+                selectedFilter={selectedFilter}
+                setSelectedFilter={setSelectedFilter}
+                setSearchResult={setSearchResult}
+                searchResult={item}
+                name={item.name}
+                key={item.name}
+              />
+            ))}
+        </div>
       </div>
     </div>
   );

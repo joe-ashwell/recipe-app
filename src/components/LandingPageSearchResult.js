@@ -21,7 +21,7 @@ const LandingPageSearchResult = ({
   return (
     <Link to={`/search/${searchResult && searchResult.name}`}>
       <div
-        className="block bg-indigo-50 text-indigo-900 z-10"
+        className="block bg-gray-50 hover:bg-gray-100 hover:text-gray-900 text-gray-900 p-2 m-1"
         onClick={searchResultHandler}
       >
         <p>{searchResult.name}</p>

@@ -19,7 +19,10 @@ const NavSearchResult = ({
   };
   return (
     <Link to={`/search/${searchResult && searchResult.name}`}>
-      <div onClick={navSearchResultHandler} className="result-test">
+      <div
+        onClick={navSearchResultHandler}
+        className=" bg-gray-50 hover:bg-gray-100 hover:text-gray-900 text-gray-900 p-2 m-1 w-auto"
+      >
         <p>{searchResult.name}</p>
       </div>
     </Link>
