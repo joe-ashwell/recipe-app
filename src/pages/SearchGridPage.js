@@ -27,7 +27,7 @@ const SearchGridPage = ({
   }, [selectedFilter && selectedFilter]);
 
   return (
-    <div className="mx-20 overflow-x-hidden">
+    <div className="mx-20 mb-20 overflow-x-hidden">
       <SearchGridPageSearchFilters
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}

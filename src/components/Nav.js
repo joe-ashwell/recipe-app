@@ -9,7 +9,7 @@ const Nav = ({
   selectedFilter,
 }) => {
   return (
-    <nav className="flex items-center mx-20 py-4 my-4">
+    <nav className="flex items-center mx-20 py-4 my-4 ">
       <Link to="/">
         <h1
           className="mr-10 text-2xl "

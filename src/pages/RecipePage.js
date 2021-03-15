@@ -16,9 +16,9 @@ const RecipePage = ({ selectedRecipe }) => {
   }, []);
 
   return (
-    <div className="mx-20">
+    <div className="mx-10 py-10 md:py-20 md-mx:20">
       <h2 className="cursor-pointer" onClick={history.goBack}>
-        🔙 Back to search
+        🔙 <span className="ml-2">Back to search </span>
       </h2>
       <h1 className="text-5xl text-center my-10">{recipe && recipe.title}</h1>
 
