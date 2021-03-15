@@ -25,7 +25,7 @@ const NavInput = ({
   return (
     <div className="w-screen">
       <input
-        className="border-gray-200 border-b-2 p-2 relative w-96"
+        className="border-gray-200 border-b-2 p-2 relative md:w-96"
         onChange={enteredSearch}
         type="text"
         placeholder="Search more ingredients"

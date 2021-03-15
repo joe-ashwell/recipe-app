@@ -39,12 +39,12 @@ const LandingPageInput = ({
         </h1>
         <div className="w-full">
           <input
-            className="border-gray-600 border-2 rounded p-4 relative w-1/2"
+            className="border-gray-600 border-2 rounded p-4 relative w-80 md:w-96"
             onChange={enteredSearch}
             type="text"
             placeholder="Give me food..."
           />
-          <div className="absolute w-1/2 bg-gray-50">
+          <div className="absolute w-80 md:w-96 bg-gray-50">
             {searchResult &&
               searchResult.map((item) => (
                 <LandingPageSearchResult

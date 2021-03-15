@@ -44,13 +44,13 @@ const RecipePage = ({ selectedRecipe }) => {
         </div>
       </div>
 
-      <div className="mx-2 my-10">
+      <div className="mx-2 xl:px-80 my-10">
         <h3 className="text-4xl md:text-2xl mb-2">Summary</h3>
         <p>{recipe && recipe.summary}</p>
       </div>
 
       {recipe && recipe.analyzedInstructions[0] && (
-        <div className="mt-4 mx-2 mb-32">
+        <div className="mt-4 mx-2 mb-32 xl:px-80">
           <h3 className="text-4xl md:text-2xl my-2">Step by step</h3>
 
           {recipe.analyzedInstructions[0].steps.map((step) => (
