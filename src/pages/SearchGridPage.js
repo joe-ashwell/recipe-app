@@ -19,15 +19,15 @@ const SearchGridPage = ({
         .get(
           `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${filterItems.join(
             ",+"
-          )}&number=5&apiKey=${
+          )}&number=10&apiKey=${
             process.env.REACT_APP_FOOD_API
           }&includeNutrition=true`
         )
         .then((data) => setRecipesFromIngredients(data.data));
-  }, [selectedFilter && selectedFilter]);
+  }, [selectedFilter, setRecipesFromIngredients]);
 
   return (
-    <div className="mx-20 mb-20 overflow-x-hidden">
+    <div className="mx-16 mb-20 overflow-x-hidden">
       <SearchGridPageSearchFilters
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}

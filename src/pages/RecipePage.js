@@ -13,7 +13,7 @@ const RecipePage = ({ selectedRecipe }) => {
           `https://api.spoonacular.com/recipes/${selectedRecipe.id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_FOOD_API}`
         )
         .then((data) => setRecipe(data.data));
-  }, []);
+  }, [selectedRecipe]);
 
   return (
     <div className="mx-10 py-10 md:py-20 md-mx:20">
@@ -34,7 +34,9 @@ const RecipePage = ({ selectedRecipe }) => {
           <ul className="mb-1">
             {recipe &&
               recipe.dishTypes.map((dishType) => (
-                <p className="list-disc ml-4 capitalize">- {dishType}</p>
+                <p className="list-disc ml-4 capitalize" key={dishType}>
+                  - {dishType}
+                </p>
               ))}
           </ul>
           <p className="mb-1">

@@ -16,7 +16,11 @@ const SearchGridPageGrid = ({ recipesFromIngredients, setSelectedRecipe }) => {
               key={recipeLink.id}
             >
               <div className="m-1 p-1 w-full">
-                <img className="rounded-xl " src={recipeLink.image}></img>
+                <img
+                  className="rounded-xl"
+                  alt={recipeLink.title}
+                  src={recipeLink.image}
+                ></img>
                 <p>{recipeLink.title}</p>
               </div>
             </Link>
