@@ -10,7 +10,7 @@ const Nav = ({
 }) => {
   return (
     <nav className="flex items-center mx-16 py-4 my-4 ">
-      <Link to="/">
+      <Link to="/recipe-app/">
         <h1
           className="mr-10 text-2xl "
           onClick={() => {

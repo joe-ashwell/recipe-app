@@ -26,7 +26,7 @@ function App() {
         selectedFilter={selectedFilter}
       />
       <Switch>
-        <Route path="/" exact>
+        <Route path="/recipe-app" exact>
           <LandingPage
             searchResult={searchResult}
             setSearchResult={setSearchResult}
@@ -35,7 +35,7 @@ function App() {
           />
         </Route>
 
-        <Route path="/search/">
+        <Route path="/recipe-app/search/">
           <SearchGridPage
             searchResult={searchResult}
             setSearchResult={setSearchResult}
@@ -47,7 +47,7 @@ function App() {
           />
         </Route>
 
-        <Route path="/recipe/">
+        <Route path="/recipe-app/recipe/">
           <RecipePage
             searchResult={searchResult}
             setSearchResult={setSearchResult}
